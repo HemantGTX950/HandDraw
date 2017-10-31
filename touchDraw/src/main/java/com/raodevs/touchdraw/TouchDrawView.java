@@ -23,7 +23,7 @@ public class TouchDrawView extends View {
     private String text_color="BLUE", bg_color="WHITE";
     private String text_size="5f";
 
-
+    //public constructor to make object of the view
     public TouchDrawView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         path = new Path();
@@ -51,10 +51,12 @@ public class TouchDrawView extends View {
         int eventaction = event.getAction();
         switch (eventaction) {
             case MotionEvent.ACTION_DOWN:
+                //touch and then moved downward
                 path.moveTo(X, Y);
                 break;
 
             case MotionEvent.ACTION_MOVE:
+                //touch and then moved in any direction
                 path.lineTo(X, Y);
                 break;
 
@@ -65,7 +67,7 @@ public class TouchDrawView extends View {
         return true;
     }
 
-
+//initialising various attributes
     private void initAttributes(TypedArray typedArray) {
         String t_color = typedArray.getString(R.styleable.Canvas_paint_color);
         String t_size = typedArray.getString(R.styleable.Canvas_paint_width);
